@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Min Nath | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+    min-height:100vh;
+    padding:20px;
+}
+
+.hero{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    min-height:100vh;
+}
+
+.profile{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    border:4px solid #38bdf8;
+    margin-bottom:20px;
+    object-fit:cover;
+}
+
+h1{
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.typing{
+    font-size:1.2rem;
+    color:#38bdf8;
+    font-weight:600;
+    min-height:40px;
+    margin-bottom:25px;
+}
+
+.card{
+    width:100%;
+    max-width:500px;
+    background:#1e293b;
+    padding:25px;
+    border-radius:20px;
+    text-align:left;
+    box-shadow:0 0 20px rgba(56,189,248,0.15);
+    animation:fadeUp 1s ease;
+}
+
+.card h3{
+    color:#38bdf8;
+    margin-bottom:10px;
+}
+
+.card p{
+    line-height:1.8;
+}
+
+.card a{
+    color:#38bdf8;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.card a:hover{
+    text-decoration:underline;
+}
+
+hr{
+    margin:20px 0;
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.japanese{
+    text-align:center;
+    color:#38bdf8;
+    font-size:18px;
+    font-weight:600;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    color:#94a3b8;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(min-width:768px){
+    h1{
+        font-size:3rem;
+    }
+
+    .typing{
+        font-size:1.5rem;
+    }
+
+    .card{
+        max-width:700px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+    <img src="profile.jpg" alt="Min Nath" class="profile">
+
+    <h1>MIN NATH</h1>
+
+    <div class="typing">
+        <span id="text"></span>
+    </div>
+
+    <div class="card">
+
+        <h3>About Me</h3>
+
+        <p>
+            Hi, I'm <strong>Min Nath</strong>.<br><br>
+
+            An Electrical Engineering student currently living in Kathmandu, Nepal.
+            I am passionate about technology and continuous learning. Along with my
+            engineering studies, I am learning Japanese to pursue professional
+            opportunities in Japan and build a successful international career.
+        </p>
+
+        <br>
+
+        <h3>Skills</h3>
+
+        <p>
+            • HTML<br>
+            • CSS<br>
+            • JavaScript<br>
+            • Content Creation
+        </p>
+
+        <br>
+
+        <h3>Contact & Social Media</h3>
+
+        <p>
+            📍 Kathmandu, Nepal<br>
+            📞 9765319109
+        </p>
+
+        <br>
+
+        <p>
+            🌐 Website / Facebook<br>
+            <a href="https://minnath.com.np" target="_blank">
+                minnath.com.np
+            </a>
+        </p>
+
+        <br>
+
+        <p>
+            💬 WhatsApp<br>
+            <a href="https://wa.me/9779765319109" target="_blank">
+                Chat on WhatsApp
+            </a>
+        </p>
+
+        <hr>
+
+        <p class="japanese">
+            どうぞよろしくお願いします。
+        </p>
+
+    </div>
+
+</section>
+
+<footer>
+    ©️ 2026 MIN NATH
+</footer>
+
+<script>
+const texts = [
+    "Hey, it's me MIN NATH",
+    "Electrical Engineering Student",
+    "どうぞよろしくお願いします。"
+];
+
+let textIndex = 0;
+let charIndex = 0;
+const typingElement = document.getElementById("text");
+
+function typeEffect() {
+    if (charIndex < texts[textIndex].length) {
+        typingElement.innerHTML += texts[textIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeEffect, 100);
+    } else {
+        setTimeout(() => {
+            typingElement.innerHTML = "";
+            charIndex = 0;
+            textIndex = (textIndex + 1) % texts.length;
+            typeEffect();
+        }, 2000);
+    }
+}
+
+typeEffect();
+</script>
+
+</body>
+</html>
